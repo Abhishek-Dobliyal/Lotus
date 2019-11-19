@@ -1,0 +1,14 @@
+
+pyttsx3
+SpeechRecognition
+wolframalpha
+wikipedia
+PyAudio
+subprocess
+os
+time
+datetime
+calendar
+mpg123
+webbrowser
+
