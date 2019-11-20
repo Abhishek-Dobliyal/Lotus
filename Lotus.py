@@ -160,7 +160,7 @@ if __name__ == "__main__":
             quit(interact)
 
         elif 'calculate' in query: # Can do variety of maths problem
-            id = 'KWW8JU-57R8VWVAR3'
+            id = 'YOUR WOLFRAM-ID'
             client = wolframalpha.Client(id)
             indx = query.lower().split().index('calculate')
             ques = query.split()[indx + 1:]
@@ -212,7 +212,7 @@ if __name__ == "__main__":
 
             speak('According to Open Weather....')
             query = query.replace('show me the weather in', "")
-            api = f'https://api.openweathermap.org/data/2.5/weather?&appid=5e19c11d8d2d461ea6bcd6b3a168538f&q={query}'
+            api = f'https://api.openweathermap.org/data/2.5/weather?&appid="YOUR OPEN_MAP API KEY without quotes"&q={query}'
             weather_data = requests.get(api).json()
             weather= weather_data['weather'][0]['main']
             desc =  weather_data['weather'][0]['description']
