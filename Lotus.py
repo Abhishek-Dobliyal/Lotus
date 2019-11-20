@@ -8,10 +8,13 @@ import speech_recognition as sr
 import datetime
 import calendar
 import time
+import shutil
 import mpg123
 import wikipedia
 import webbrowser
+from bs4 import BeautifulSoup
 import random
+import requests
 import wolframalpha
 import subprocess
 import os
@@ -86,6 +89,12 @@ def quit(prompt):
         speak("Goodbye Master. See you soon. Have a nice day")
         exit()
 
+def file_organizer(specified_path):
+    current_path = os.path.abspath("JUNK_ORGANIZER.py")
+    copy_file = shutil.copy2(current_path, specified_path)
+    os.chdir(specified_path)
+    os.system("python3 JUNK_ORGANIZER.py")
+
 if __name__ == "__main__":
     wishMe()
     while True: # Uses while loop to continuously listen to commands
@@ -104,7 +113,7 @@ if __name__ == "__main__":
                 speak(ques[questions])
                 interact = input("\nPress 'I' to interact or 'Q' to quit : ") # Interaction Through Keyboard
                 quit(interact)
-
+                
 
         # Keywords for performing tasks
         if 'wikipedia' in query: # Searches for any thing on wikipedia
@@ -151,7 +160,7 @@ if __name__ == "__main__":
             quit(interact)
 
         elif 'calculate' in query: # Can do variety of maths problem
-            id = 'Your Wolfram ID'
+            id = 'KWW8JU-57R8VWVAR3'
             client = wolframalpha.Client(id)
             indx = query.lower().split().index('calculate')
             ques = query.split()[indx + 1:]
@@ -179,6 +188,13 @@ if __name__ == "__main__":
             interact = input("\nPress 'I' to interact or 'Q' to quit : ") # Interaction Through Keyboard
             quit(interact)
 
+        elif "get me " in query:
+            print("Lotus : Here are some top Headlines of the day I found on the web: \n")
+            speak("Here are some top Headlines of the day I found on the web")
+            os.system("python3 news.py")
+            interact = input("\nPress 'I' to interact or 'Q' to quit : ") # Interaction Through Keyboard
+            quit(interact)
+
         elif query in date_calendar: # Calendar includes the current date, time and Calendar
 
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
@@ -196,7 +212,7 @@ if __name__ == "__main__":
 
             speak('According to Open Weather....')
             query = query.replace('show me the weather in', "")
-            api = f'https://api.openweathermap.org/data/2.5/weather?&appid={Your OpenWeather ID}&q={query}'
+            api = f'https://api.openweathermap.org/data/2.5/weather?&appid=5e19c11d8d2d461ea6bcd6b3a168538f&q={query}'
             weather_data = requests.get(api).json()
             weather= weather_data['weather'][0]['main']
             desc =  weather_data['weather'][0]['description']
@@ -216,22 +232,30 @@ if __name__ == "__main__":
             quit(interact)
 
         elif 'play ' in query:
-            folder = "/Users/crytek/Music/"  # Change this to your Directory
+            folder = "/Users/crytek/Music/"
             print("Lotus : Here it is, Enjoy. ")
             speak("Here it is, Enjoy!")
-            music = 'NEFFEX' ,'Baller', 'Cold'  # Song Names
+            music = 'NEFFEX' ,'Baller', 'Cold'
             random_music = folder + random.choice(music) + '.mp3' # Using Random module to shuffle and play a new song every time.
             subprocess.call(["/usr/bin/open", '-n', '-a', "/Applications/IINA.app", random_music])  # One can also use mpg123 CL Music player which is a command line Music player
             interact = input("\nPress 'I' to interact or 'Q' to quit : ") # Interaction Through Keyboard
             quit(interact)
 
+        elif 'organise my files' in query:
+            speak("Enter the Exact Path of your Folder to be Organized")
+            specified_path = input("Enter the Exact Path of your Folder to be Organized: ")
+            file_organizer(specified_path)
+            print("Lotus : Done! Please take a look.")
+            speak("Done! Please take a look")
+            interact = input("\nPress 'I' to interact or 'Q' to quit : ") # Interaction Through Keyboard
+            quit(interact)
 
         elif 'launch' in query or 'open' in query:
             print("Lotus : Command Confirmed")
             speak("Command Confirmed!")   # Can open multiple apps .
             for i in query:
                 if 'whatsapp' in query:
-                    subprocess.call(["/usr/bin/open", '-n', '-a', "/Applications/Whatsapp.app"])  # Change this path acc. to your apps
+                    subprocess.call(["/usr/bin/open", '-n', '-a', "/Applications/Whatsapp.app"])
                     break
                 elif 'photos' in query:
                     subprocess.call(["/usr/bin/open", '-n', '-a', "/Applications/Photos.app"])
