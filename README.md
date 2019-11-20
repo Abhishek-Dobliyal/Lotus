@@ -1,7 +1,7 @@
 # Lotus
 A Simple Virtual Assistant developed using PYTHON-3
 
-
+# Version 1.0
 
 '''                         LOTUS
 A Virtual assistant that has a Command Line Interface(A GUI can also be created
@@ -23,11 +23,9 @@ Tasks LOTUS can perform:
 
 6. Do some Maths Problems
 
-7. Weather Forecast
+7. Search Wikipedia
 
-8. Search Wikipedia
-
-9. Set Reminders
+8. Set Reminders
 
 
 ----> More Functionalities to be added....
@@ -35,7 +33,7 @@ Tasks LOTUS can perform:
 
 # HOW TO INSTALL THE REQUIRED MODULES
 
-=> Open up your TERMINAL/CMD and type:
+=> Open TERMINAL/CMD and type:
 
     pip3 install MODULE_NAME    ( For Linux/Mac OS )
     
@@ -48,7 +46,19 @@ Tasks LOTUS can perform:
     pip install -r /path/to/requirements.txt
 
 
-NOTE: Keep the 'reminder.mp3' file in the same folder as the code file (Lotus.py)
+
+# Version 2.0 is Up!!!
+
+Functionalities added: 
+
+1. News Headlines
+
+2. File Organizer/ Junk Organizer
+
+3. Weather Forecast
 
 
-Working on Version 2.0
+NOTE: Keep the 'reminder.mp3', 'JUNK_ORGANIZER.py' and 'new.py' files in the same folder as the code file (Lotus.py).
+
+
+
