@@ -89,12 +89,6 @@ def quit(prompt):
         speak("Goodbye Master. See you soon. Have a nice day")
         exit()
 
-def file_organizer(specified_path):
-    current_path = os.path.abspath("JUNK_ORGANIZER.py")
-    copy_file = shutil.copy2(current_path, specified_path)
-    os.chdir(specified_path)
-    os.system("python3 JUNK_ORGANIZER.py")
-
 if __name__ == "__main__":
     wishMe()
     while True: # Uses while loop to continuously listen to commands
@@ -238,15 +232,6 @@ if __name__ == "__main__":
             music = 'NEFFEX' ,'Baller', 'Cold'
             random_music = folder + random.choice(music) + '.mp3' # Using Random module to shuffle and play a new song every time.
             subprocess.call(["/usr/bin/open", '-n', '-a', "/Applications/IINA.app", random_music])  # One can also use mpg123 CL Music player which is a command line Music player
-            interact = input("\nPress 'I' to interact or 'Q' to quit : ") # Interaction Through Keyboard
-            quit(interact)
-
-        elif 'organise my files' in query:
-            speak("Enter the Exact Path of your Folder to be Organized")
-            specified_path = input("Enter the Exact Path of your Folder to be Organized: ")
-            file_organizer(specified_path)
-            print("Lotus : Done! Please take a look.")
-            speak("Done! Please take a look")
             interact = input("\nPress 'I' to interact or 'Q' to quit : ") # Interaction Through Keyboard
             quit(interact)
 
