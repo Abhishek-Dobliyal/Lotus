@@ -53,12 +53,10 @@ Functionalities added:
 
 1. News Headlines
 
-2. File Organizer/ Junk Organizer
-
-3. Weather Forecast
+2. Weather Forecast
 
 
-NOTE: Keep the 'reminder.mp3', 'JUNK_ORGANIZER.py' and 'new.py' files in the same folder as the code file (Lotus.py).
+NOTE: Keep the 'reminder.mp3' and 'news.py' files in the same folder as the code file (Lotus.py).
 
 
 
