@@ -4,8 +4,7 @@ A Simple Virtual Assistant developed using PYTHON-3
 # Version 1.0
 
 '''                         LOTUS
-A Virtual assistant that has a Command Line Interface(A GUI can also be created
-using tkinter module).
+
 She will help you carry out day to day tasks such as listening to music, opening apps, surfing the web etc..'''
 
 
