@@ -16,6 +16,7 @@ import urllib.request
 import wolframalpha  # pip install wolframalpha
 import subprocess
 import os
+import mpg123
 import pyfiglet  # pip install pyfiglet
 import string
 from bs4 import BeautifulSoup
@@ -75,15 +76,15 @@ def wish_me():  # Greeting Process
     hour = int(datetime.now().hour)
     if hour >= 0 and hour < 12:
         speak("Good Morning Master")
-        print("\nLotus: Good Morning")
+        print("\nLotus: Good Morning!")
 
     elif hour >= 12 and hour < 18:
         speak("Good Afternoon Master")
-        print("\nLotus: Good Afternoon")
+        print("\nLotus: Good Afternoon!")
 
     else:
         speak("Good Evening Master")
-        print("\nLotus: Good Evening")
+        print("\nLotus: Good Evening!")
 
     speak("This is Lotus. Ready to take your Commands.")
 
@@ -184,7 +185,7 @@ if __name__ == "__main__":
             quit(interact)
 
         elif 'calculate' in query:  # Can do variety of maths problem
-            id = 'KWW8JU-57R8VWVAR3'
+            id = 'YOUR WOLFRAMALPHA-ID'
             client = wolframalpha.Client(id)
             indx = query.lower().split().index('calculate')
             ques = query.split()[indx + 1:]
@@ -254,7 +255,7 @@ if __name__ == "__main__":
 
         elif 'show me the weather in ' in query:  # Weather Forecast
             query = query.replace('show me the weather in', "")
-            api = f'https://api.openweathermap.org/data/2.5/weather?&appid=5e19c11d8d2d461ea6bcd6b3a168538f&q={query}'
+            api = f'https://api.openweathermap.org/data/2.5/weather?&appid="YOUR OPENWEATHER API KEY (without quotes)"&q={query}'
             try:
                 weather_data = requests.get(api).json() # Fetch the weather data as json
                 weather = weather_data['weather'][0]['main']
@@ -287,20 +288,6 @@ if __name__ == "__main__":
             # Using Random module to shuffle and play a new song every time.
             random_music = folder + random.choice(music) + '.mp3'
             subprocess.call(["/usr/bin/open", '-n', '-a', "/Applications/IINA.app", random_music])
-            # Interaction Through Keyboard
-            interact = input("\nPress 'I' to interact or 'Q' to quit : ")
-            quit(interact)
-
-        elif 'organise my files' in query:
-            speak("Enter the Exact Path of your Folder to be Organized")
-            specified_path = input("Enter the Exact Path of your Folder to be Organized: ")
-            try:
-                file_organizer(specified_path)
-            except NotADirectoryError:
-                speak("Sorry, Could not locate the Directory!")
-            else:
-                print("Lotus : Done! Please take a look.")
-                speak("Done! Please take a look")
             # Interaction Through Keyboard
             interact = input("\nPress 'I' to interact or 'Q' to quit : ")
             quit(interact)
