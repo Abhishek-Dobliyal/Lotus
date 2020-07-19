@@ -16,7 +16,7 @@ import urllib.request
 import wolframalpha  # pip install wolframalpha
 import subprocess
 import os
-import mpg123
+import mpg123 # pip install mpg123
 import pyfiglet  # pip install pyfiglet
 import string
 from bs4 import BeautifulSoup
