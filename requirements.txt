@@ -4,7 +4,6 @@ SpeechRecognition==3.8.1
 wolframalpha==3.0.1
 wikipedia==1.4.0
 PyAudio==0.2.11
-mpg123==0.4
 bs4==0.0.1
 requests==2.22.0
 
