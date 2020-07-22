@@ -55,7 +55,7 @@ Functionalities added:
 2. Weather Forecast
 
 
-NOTE: Keep the 'reminder.mp3' and 'news.py' files in the same folder as the code file (Lotus.py).
+NOTE: Keep the 'reminder.mp3' file in the same folder as the code file (Lotus.py).
 
 
 
